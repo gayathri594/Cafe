@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="coffee.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, section {
+            padding: 20px;
+        }
+
+        section {
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(84, 42, 1);
+            color: white;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th, .cart-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .cart-table th {
+            background-color: #f2f2f2;
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .cart-buttons button {
+            background-color: rgb(160, 84, 7);
+            color: white;
+            border: 0;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .cart-buttons button:hover {
+            background-color: rgb(97, 52, 6);
+        }
+
+        .material-icons { 
+            padding: 10px; 
+            font-size: 40px; 
+            width: 40px; 
+            text-decoration: none; 
+            margin: 5px 80px; 
+        } 
+
+        .android { 
+            background: #a4c639; 
+            color: white; 
+        } 
+
+        .facebook { 
+            background: #3b5998; 
+            color: white; 
+        } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="Add-on.html">Add-on's</a></li>
+                    <li><a href="Beans.html">Beans</a></li>
+                    <li><a href="dupdrinks.html">Drinks</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="#admin">Admin</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <h1>Your Cart</h1>
+            <table class="cart-table" id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" style="text-align:right;">Total:</td>
+                        <td id="cart-total">$0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="cart-buttons">
+                <button onclick="clearCart()">Clear Cart</button>
+                <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+            </div>
+        </section>
+        <footer>
+            © UNI BEAN CAFE. All Rights Reserved.
+            <!-- Social media icons omitted for brevity -->
+        </footer>
+    </div>
+    <script>
+        function loadCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const cartItem = document.createElement('tr');
+
+                cartItem.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>
+                        <input type="number" value="${item.quantity}" min="1" data-index="${index}" onchange="updateQuantity(event)">
+                    </td>
+                    <td>$${itemTotal.toFixed(2)}</td>
+                    <td><button onclick="removeItem(${index})">Remove</button></td>
+                `;
+
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            cartTotalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function updateQuantity(event) {
+            const index = event.target.getAttribute('data-index');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity = parseInt(event.target.value);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function removeItem(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            loadCart();
+        }
+
+        function proceedToCheckout() {
+            window.location.href = 'checkout.html';
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+    <link rel="stylesheet" href="Order.css">
+</head>
+<body>
+    <div class="logo">
+        <div class="img">
+           <img src="coffeelogo.jpg" width="110" height="110">
+       </div>
+       <div class="text1">
+         <h1 style="font-family: 'Brush Script MT', cursive;">Uni Bean Cafe</h1>
+       </div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="Add-on.html">Add-on's</a></li>
+            <li><a href="Beans.html">Beans</a></li>
+            <li><a href="dupdrinks.html">Drinks</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="#admin">Admin</a></li>  
+        </ul>
+    </nav>
+
+    <div class="order-form">
+        <h2>Order Now</h2>
+        <form action="/submit-order" method="POST">  
+            <label for="customer-name">Your Name</label>
+            <input type="text" id="customer-name" name="customer-name" required>
+
+            <label for="customer-email">Your Email</label>
+            <input type="email" id="customer-email" name="customer-email" required>
+
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" name="product-name" readonly>
+
+            <label for="product-cost">Product Cost: </label>
+            <span id="product-cost"></span>
+            <br><br>
+            <label for="product-quantity">Quantity</label>
+            <input type="number" id="product-quantity" name="product-quantity" min="1" value="1" required>
+
+            <label for="total-price">Total Price</label>
+            <span id="total-price">0.00</span><br><br>  
+
+
+            <label for="customer-address">Your Address</label>
+            <input type="text" id="customer-address" name="customer-address" required>
+
+            
+
+            <button type="submit">Order Now</button>
+        </form>
+    </div> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productName = localStorage.getItem('productName');
+            const productPrice = localStorage.getItem('productPrice');
+    
+            if (productName && productPrice) {
+                document.getElementById('product-name').value = productName;
+                document.getElementById('product-price').value = productPrice;
+    
+                localStorage.removeItem('productName');
+                localStorage.removeItem('productPrice');
+            }
+        }); 
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const productName = localStorage.getItem('productName');
+        const productPrice = localStorage.getItem('productPrice');
+
+        if (productName && productPrice) {
+            document.getElementById('product-name').value = productName;
+            document.getElementById('product-cost').innerText = productPrice; // Set product cost as innerText
+            localStorage.removeItem('productName');
+            localStorage.removeItem('productPrice');
+        }
+
+        document.getElementById('product-quantity').addEventListener('input', function() {
+            const quantity = parseInt(this.value);
+            const price = parseFloat(productPrice);
+            const totalPrice = quantity * price;
+            document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+        });
+    });
+</script>
+
+
+    
+ </body>
+    </html> 
+
+
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="Order.css">
+</head>
+<body>
+
+    <div class="logo">
+        <div class="img">
+           <img src="coffeelogo.jpg" width="110" height="110">
+       </div>
+       <div class="text1">
+         <h1 style="font-family: 'Brush Script MT', cursive;">Uni Bean Cafe</h1>
+       </div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="Add-on.html">Add-on's</a></li>
+            <li><a href="Beans.html">Beans</a></li>
+            <li><a href="Drinks.html">Drinks</a></li>
+            <li><a href="Order.html">Order Now</a></li>
+            <li><a href="#admin">Admin</a></li>  
+        </ul>
+    </nav>
+
+    <h1>Your Cart</h1>
+    <div id="cart-items"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    displayCartItems();
+});
+
+function displayCartItems() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    let cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = ''; // Clear previous content
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+        return;
+    }
+
+    cart.forEach(item => {
+        let itemContainer = document.createElement('div');
+        itemContainer.classList.add('cart-item');
+
+        let imageElement = document.createElement('img');
+        imageElement.src = item.imageSrc; // Assuming you store image source in the cart item
+        imageElement.alt = item.itemName;
+        itemContainer.appendChild(imageElement);
+
+        let itemNameElement = document.createElement('p');
+        itemNameElement.textContent = item.itemName;
+        itemContainer.appendChild(itemNameElement);
+
+        let priceElement = document.createElement('p');
+        priceElement.textContent = '$' + item.price.toFixed(2);
+        itemContainer.appendChild(priceElement);
+
+        let quantityElement = document.createElement('p');
+        quantityElement.textContent = 'Quantity: ' + item.quantity;
+        itemContainer.appendChild(quantityElement);
+
+        cartItemsContainer.appendChild(itemContainer);
+    });
+}
+
+    </script>
+</body>
+</html> -->

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="Drinks.css">
+    <style>
+        .checkout-summary {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+
+        .checkout-summary h2 {
+            text-align: center;
+        }
+
+        .checkout-summary .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .checkout-summary .summary-item div {
+            flex: 1;
+        }
+
+        .checkout-summary .summary-total {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .checkout-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .checkout-form input, .checkout-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        .checkout-form button {
+            width: 100%;
+            padding: 15px;
+            background: rgb(91, 46, 1);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .checkout-form button:hover {
+            background: rgb(144, 77, 11);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="Add-on.html">Add-on's</a></li>
+                <li><a href="Beans.html">Beans</a></li>
+                <li><a href="dupdrinks.html">Drinks</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="#admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="checkout-summary">
+            <h2>Order Summary</h2>
+            <div id="summary-items"></div>
+            <div class="summary-total">Total: $<span id="summary-total">0.00</span></div>
+        </div>
+        <br>
+        <div class="checkout-form">
+            <h2>Shipping Details</h2>
+            <form onsubmit="placeOrder(event)">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" required>
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        © UNI BEAN CAFE. All Rights Reserved.
+        <!-- Social media icons omitted for brevity -->
+    </footer>
+    <script>
+        function loadSummary() {
+            const summaryItemsContainer = document.getElementById('summary-items');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            summaryItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const summaryItem = document.createElement('div');
+                summaryItem.className = 'summary-item';
+
+                summaryItem.innerHTML = `
+                    <div>${item.name} x${item.quantity}</div>
+                    <div>$${itemTotal.toFixed(2)}</div>
+                `;
+
+                summaryItemsContainer.appendChild(summaryItem);
+            });
+
+            document.getElementById('summary-total').textContent = total.toFixed(2);
+        }
+
+        function placeOrder(event) {
+            event.preventDefault();
+            alert('Your Order has been placed successfully!');
+            localStorage.removeItem('cart');
+            window.location.href = 'home.html';
+        }
+
+        window.onload = loadSummary;
+    </script>
+</body>
+</html>

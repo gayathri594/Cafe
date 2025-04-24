@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+    <link rel="stylesheet" href="coffee.css">
+</head>
+<body>
+    <div class="logo">
+        <div class="img">
+           <img src="coffeelogo.jpg" width="110" height="110">
+       </div>
+       <div class="text1">
+         <h1 style="font-family: 'Brush Script MT', cursive;">Uni Bean Cafe</h1>
+       </div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="Add-on.html">Add-on's</a></li>
+            <li><a href="Beans.html">Beans</a></li>
+            <li><a href="dupdrinks.html">Drinks</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="#admin">Admin</a></li>  
+        </ul>
+    </nav>
+    <br>
+    <section>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="coorg-arabica-roasted-coffee-beans.jpg" alt="Coorg Arabica Roasted Coffee Beans">
+                    <p>Coorg Arabica Roasted Coffee Beans</p>
+                    <p class="price">$12.50</p>
+                    <p><button onclick="addToCart('Coorg Arabica Roasted Coffee Beans',12.50)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="premiumroastedcoffeebeans.jpg" alt="Premium Roasted Coffee Beans">
+                    <p>Premium Roasted Coffee Beans</p>
+                    <p class="price">$13.25</p>
+                    <p><button onclick="addToCart('Premium Roasted Coffee Beans',13.25)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="ArakuCoffee.jpg" alt="ArakuCoffee">
+                    <p>Araku Coffee Beans</p>
+                    <p class="price">$11.75</p>
+                    <p><button onclick="addToCart('Araku Coffee Beans',11.75)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="Darkmelodycoffeebeans.jpg" alt="Darkmelodycoffeebeans">
+                    <p>Dark Melody Coffee Beans</p>
+                    <p class="price">$14.10</p>
+                    <p><button onclick="addToCart('Dark Melody Coffee Beans',14.10)">Add to Cart</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="frenchroastbeans.jpg" alt="frenchroastbeans">
+                    <p>French Roast Beans</p>
+                    <p class="price">$11.75</p>
+                    <p><button onclick="addToCart('French Roast Beans',11.75)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="coffeebeans7525robusta.jpg" alt="coffeebeans7525robusta">
+                    <p>Coffee Beans 75% Arabica 25% Robusta</p>
+                    <p class="price">$13.50</p>
+                    <p><button onclick="addToCart('Coffee Beans 75% Arabica 25% Robusta',13.50)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="customroast.jpg" alt="customroast">
+                    <p>Custom Roast Beans</p>
+                    <p class="price">$15</p>
+                    <p><button onclick="addToCart('Custom Roast Beans',15)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="lightroast.jpg" alt="lightroast">
+                    <p>Light Roast Beans</p>
+                    <p class="price">$12.50</p>
+                    <p><button onclick="addToCart('Light Roast Beans',12.50)">Add to Cart</button></p>
+                </div>
+            </div>
+        </div> 
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="arakuvalleylightroast.jpg" alt="arakuvalleylightroast">
+                    <p>Araku Valley Light Roast Beans</p>
+                    <p class="price">$10.15</p>
+                    <p><button onclick="addToCart('Araku Valley Light Roast Beans',10.15)">Add to Cart</button></p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="mediumroast.jpg" alt="mediumroast">
+                    <p>Medium Roasted Beans</p>
+                    <p class="price">$10.75</p>
+                    <p><button onclick="addToCart('Medium Roast Beans',10.75)">Add to Cart</button></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © UNI BEAN CAFE. All Rights Reserved.<br>
+        Follow us on <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>   
+          </svg> 
+          <br>
+          Contact us at +91-9291400899<br>
+          In partnership with @ThanusriRamachari..
+    </footer>
+
+    <script>
+        function addToCart(productName, productPrice) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            const existingItem = cart.find(item => item.name === productName);
+    
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+    
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(productName + " has been added to your cart!");
+        }
+    </script>
+</body>
+</html>

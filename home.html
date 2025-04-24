@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="logo">
+        <div class="img">
+           <img src="coffeelogo.jpg" width="110" height="110">
+       </div>
+       <div class="text1">
+         <h1 style="font-family: 'Brush Script MT', cursive;">Uni Bean Cafe</h1>
+       </div>
+    </div>
+    <section class="home">
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="coffee.html">Coffee</a></li>
+                <li><a href="Add-on.html">Add-on's</a></li>
+                <li><a href="Beans.html">Beans</a></li>
+                <li><a href="dupdrinks.html">Drinks</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="#admin">Admin</a></li>  
+            </ul>
+        </nav>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="slide1.jpg" alt="Slide 1">
+                <div class="text">Hocus Pocus I need coffee to focus</div>
+            </div>
+            
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="img1.jpg" alt="Slide 2">
+                <div class="text">Stupidly in <i>Love</i></div>
+            </div>
+            
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="slide7.jpg" alt="Slide 3">
+                <div class="text">More <i>espresso</i> less <i>depresso</i></div>
+            </div>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
+            
+        <script>
+            let slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";  
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+        </script>
+    </section>
+    <br>
+    <div class="container">
+        <div>
+            <img src="our.jpg" width="500" height="400">
+        </div>
+        <div class="words">
+        <p> <h2><i>Our Story</i></h2>
+            Since 2018, we have been serving our customers with a simple motto: <i>" A Magical potion that turns 'leave me alone into Good morning people' ".</i> Whether you're enjoying breakfast or happy hour, we always guarantee a cozy and friendly ambiance, excellent customer service, quality food, and beverages all day. We are pleasured to serve our customers all weekend.<br><br>
+            We've quickly become a local favorite with our fantastic coffee, drinks,beans andadd-on's! We are open seven days a week and have become the it place for your weekend brunch. We focus on finding gourmet ingredients, carefully curated and fresh. These ingredients make every item on our menu taste fresh and flavorful.<br> <i>"We want our place to be your place where you can sit, have a cup of coffee and chill with your friends,a place where you can find peace
+                and let it all out with a fresh cup of COFFEE". 
+            </i>
+        
+        </p>
+        </div>
+  </div>
+  <br>
+  <section>
+  <h2><i>Our Customer's Clicks</i></h2>
+   <div class="row">
+      <div class="column">
+        <img src="cup1.jpg" width="350px">
+      </div>
+      <div class="column">
+        <img src="cup2.jpg" width="350px">
+      </div>
+      <div class="column">
+        <img src="cup3.jpg" width="350px">
+      </div>
+      <div class="column">
+        <img src="cup4.jpg" width="350px">
+      </div>
+      <div class="column">
+        <img src="cup5.jpg" width="350px">
+      </div>
+</div>
+<div class="row">
+    <div class="column">
+      <img src="cup14.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup6.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup7.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup12.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup15.jpg" width="350px">
+    </div>
+</div>                                   
+<div class="row">
+    <div class="column">
+      <img src="cup16.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup17.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup18.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup19.jpg" width="350px">
+    </div>
+    <div class="column">
+      <img src="cup20.jpg" width="350px">
+    </div>
+</div>
+</section>
+<br>
+<marquee><i>Prends soin de toi &#128151</i></marquee>
+<br><br>
+<section>
+<footer>
+    © UNI BEAN CAFE. All Rights Reserved.<br>
+    Follow us on <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>   
+      </svg> 
+      <br>
+      Contact us at +91-9291400899<br>
+      In partnership with @ThanusriRamachari..
+</footer>
+</section>
+</body>
+</html>
+
+
